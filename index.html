@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeCourse</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #0d0d1f;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .card {
+      background-color: #1a1a2e;
+      color: white;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .card img {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+    }
+
+    .btn-outline-light.active {
+      background-color: #0d6efd;
+      color: white;
+      border-color: #0d6efd;
+    }
+
+    main {
+        min-height: 86vh;
+    }
+
+    footer {
+      background-color: #111;
+      padding: 20px 0;
+      text-align: center;
+      color: #ccc;
+    }
+
+    #toggleDark {
+      position: absolute;
+      right: 20px;
+      top: 10px;
+    }
+
+    .dark-mode {
+      background-color: #ffffff !important;
+      color: #000 !important;
+    }
+
+    .dark-mode .card {
+      background-color: #f8f9fa !important;
+      color: #000;
+    }
+
+    .dark-mode .btn-outline-light {
+      color: #000;
+      border-color: #ccc;
+    }
+
+    .dark-mode footer {
+      background-color: #f1f1f1;
+      color: #333;
+    }
+
+    .dark-mode .btn-outline-light.active {
+      background-color: #0d6efd;
+      color: white;
+    }
+
+    @media (max-width: 576px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      .card img {
+        height: 140px;
+      }
+      .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      #toggleDark {
+        top: 12px;
+        right: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary position-relative">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">ArtCourse</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        </ul>
+      </div>
+      <button class="btn btn-sm btn-outline-light" id="toggleDark">🌙</button>
+    </div>
+  </nav>
+
+  <main>
+  <section class="text-center py-5">
+    <div class="container">
+      <h1 class="fw-bold">Journey through the world of Art</h1>
+      <p class="lead">Learn to Art with fun, interactive courses handcrafted by industry experts and educators.</p>
+    </div>
+  </section>
+
+  <section class="py-4" id="courses">
+    <div class="container text-center">
+      <div class="mb-4 d-flex justify-content-center flex-wrap gap-2">
+        <button class="btn btn-outline-light active" onclick="showSection('courses')">Beranda</button>
+        <button class="btn btn-outline-light" onclick="showSection('webdev')">Jenis Seni</button>
+        <button class="btn btn-outline-light" onclick="showSection('jadwal')">Pembelajaran Mingguan</button>
+        <button class="btn btn-outline-light" onclick="showSection('bantuan')">Bantuan</button>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card shadow h-100">
+            <img src="Необычные постеры in 2022 _ Modern graphic art, Fashion poster design, Graphic design posters.jpeg" alt="Python" class="card-img-top">
+            <div class="card-body text-start">
+              <small class="text-muted">Materi</small>
+              <h5 class="mt-2">Graphic Desainer</h5>
+              <p>Membuat Karya Seni Menggunakan Alat Digital Seperti Poster, Infografis, Banner, Spanduk, DLL.</p>
+              <span class="badge bg-dark">Beginner</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card shadow h-100">
+            <img src="download.jpeg" alt="HTML" class="card-img-top">
+            <div class="card-body text-start">
+              <small class="text-muted">Materi</small>
+              <h5 class="mt-2">Seni Lukis</h5>
+              <p>Membuat Karya Seni Menggunakan Kanvas, Kertas dan Bisa Menggunakan Pensil, Cat air, DLL.</p>
+              <span class="badge bg-dark">Beginner</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card shadow h-100">
+            <img src="download (1).jpeg" alt="CSS" class="card-img-top">
+            <div class="card-body text-start">
+              <small class="text-muted">Materi</small>
+              <h5 class="mt-2">Seni Musik</h5>
+              <p>Membuat Karya Seni     Menggunakan Alat-alat Musik Seperti Gitar, Piano, Panting. Harmonika, DLL.</p>
+              <span class="badge bg-dark">Beginner</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-4" id="webdev" style="display: none;">
+    <div class="container text-center">
+      <div class="mb-4 d-flex justify-content-center flex-wrap gap-2">
+        <button class="btn btn-outline-light active" onclick="showSection('courses', this)">Beranda</button>
+        <button class="btn btn-outline-light" onclick="showSection('webdev', this)">Jenis Seni</button>
+        <button class="btn btn-outline-light" onclick="showSection('jadwal', this)">Pembelajaran Mingguan</button>
+        <button class="btn btn-outline-light" onclick="showSection('bantuan', this)">Bantuan</button>
+      </div>
+    </div>
+  
+  
+
+    <div class="container text-center">
+      <div class="row g-4">
+
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card shadow h-100">
+            <img src="Необычные постеры in 2022 _ Modern graphic art, Fashion poster design, Graphic design posters.jpeg" alt="Python" class="card-img-top">
+            <div class="card-body text-start">
+              <small class="text-muted">Materi</small>
+              <h5 class="mt-2">Seni Lukis</h5>
+              <p>Seni Lukis Realisme
+                Menggambarkan objek secara nyata seperti apa yang dilihat mata.
+                Contoh: potret manusia, pemandangan alam, benda mati.</p>
+              <span class="badge bg-dark">Beginner</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card shadow h-100">
+            <img src="download.jpeg" alt="HTML" class="card-img-top">
+            <div class="card-body text-start">
+              <small class="text-muted">Materi</small>
+              <h5 class="mt-2">Seni Tari</h5>
+              <p>Tari Tradisional
+                Tari yang berasal dari budaya dan adat istiadat suatu daerah. Biasanya diwariskan turun-temurun.
+                
+                Tari Rakyat: Tumbuh dari masyarakat (contoh: Tari Jaipong, Tari Saman).
+                
+                Tari Klasik: Berkembang di lingkungan keraton atau bangsawan (contoh: Tari Bedhaya, Tari Srimpi).
+                
+                </p>
+              <span class="badge bg-dark">Beginner</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card shadow h-100">
+            <img src="download (1).jpeg" alt="CSS" class="card-img-top">
+            <div class="card-body text-start">
+              <small class="text-muted">Materi</small>
+              <h5 class="mt-2">Seni Musik</h5>
+              <p> Musik Modern / Populer
+                Musik yang berkembang sesuai tren dan teknologi zaman sekarang.
+                 Genre umum:
+                 PopRockJazz BluesHip Hop
+                 R&B
+                Electronic
+                </p>
+              <span class="badge bg-dark">Beginner</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<section class="py-4" id="jadwal" style="display: none;">
+    <div class="container text-center">
+      <div class="mb-4 d-flex justify-content-center flex-wrap gap-2">
+        <button class="btn btn-outline-light active" onclick="showSection('courses', this)">Beranda</button>
+        <button class="btn btn-outline-light" onclick="showSection('webdev', this)">Jenis Seni</button>
+        <button class="btn btn-outline-light" onclick="showSection('jadwal', this)">Pembelajaran Mingguan</button>
+        <button class="btn btn-outline-light" onclick="showSection('bantuan', this)">Bantuan</button>
+      </div>
+    </div>
+  
+  
+
+    <div class="container text-center">
+      <div class="row g-4">
+
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card shadow h-100">
+            <div class="card-body text-start">
+              <small class="text-muted">Materi</small>
+              <h5 class="mt-2">Pengertian Seni</h5>
+              <p>Minggu 1: Pengenalan Dasar Seni
+                Hari	Topik	Kegiatan <p></p>
+                Senin <br>	Apa itu Seni?	Membaca pengantar tentang seni dan jenis-jenisnya <p></p>
+                Selasa <br>	Seni Rupa: Dasar-dasar	Mengenal elemen seni rupa: garis, bentuk, warna <p></p>
+                Rabu <br>	Seni Musik: Ritme & Nada	Belajar ritme dasar, mengenal tangga nada <p></p>
+                Kamis <br>	Seni Pertunjukan: Teater	Menonton cuplikan teater klasik dan modern <p></p>
+                Jumat <br>	Review	Merangkum apa yang sudah dipelajari, diskusi singkat <p></p>
+                Sabtu <br>	Praktik: Sketsa Sederhana	Menggambar objek sederhana (buah, benda mati) <p></p>
+                Minggu <br>	Istirahat / Inspirasi Visual	Mengunjungi galeri seni online atau offline</p>
+              <span class="badge bg-dark">Minggu 1</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card shadow h-100">
+            <div class="card-body text-start">
+              <small class="text-muted">Materi</small>
+              <h5 class="mt-2">Seni Lukis</h5>
+              <p>Minggu 2: Pendalaman & Teknik
+                Hari	Topik	Kegiatan
+                Senin <br>	Teknik Melukis Dasar	Belajar shading, pencampuran warna <p></p>
+                Selasa <br>	Instrumen Musik Sederhana	Belajar ritme menggunakan alat musik sederhana (misalnya aplikasi) <p></p>
+                Rabu <br>	Improvisasi Teater	Latihan ekspresi wajah dan suara <p></p>
+                Kamis <br>	Kolase & Komposisi Visual	Membuat kolase dari kertas/kain <p></p>
+                Jumat <br>	Review & Refleksi	Diskusi pengalaman dan kesulitan <p></p>
+                Sabtu <br>	Praktik Musik: Buat Lagu Pendek	Menggunakan aplikasi DAW atau beatmaker sederhana <p></p>
+                Minggu <br>	Dokumentasi Progres	Foto karya, catat pengalaman belajar <p></p>
+                </p>
+              <span class="badge bg-dark">Minggu 2</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card shadow h-100">
+            <div class="card-body text-start">
+              <small class="text-muted">Materi</small>
+              <h5 class="mt-2">LKPD</h5>
+              <p> Minggu 3: Proyek Mini & Presentasi
+                Hari	Topik	Kegiatan
+                Senin <br>	Rancang Proyek Mini	Tentukan tema dan medium (lukisan, puisi, pertunjukan) <p></p>
+                Selasa <br>	Proyek Hari 1	Kerjakan bagian awal proyek <p></p>
+                Rabu <br>	Proyek Hari 2	Lanjutkan dan evaluasi proses <p></p>
+                Kamis <br>	Proyek Hari 3 + Latihan	Finishing, latihan presentasi jika berbentuk pertunjukan <p></p>
+                Jumat <br>	Presentasi Karya	Tampilkan ke teman/keluarga, atau rekam & unggah ke platform online <p></p>
+                Sabtu <br>	Refleksi Akhir	Tulis jurnal tentang pengalaman belajar seni <p></p>
+                Minggu <br>	Perayaan	Nonton pertunjukan seni atau membuat pameran mini di rumah <p></p>
+                </p>
+              <span class="badge bg-dark">Minggu 3</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<section class="py-4" id="bantuan" style="display: none;">
+    <div class="container text-center">
+      <div class="mb-4 d-flex justify-content-center flex-wrap gap-2">
+        <button class="btn btn-outline-light active" onclick="showSection('courses', this)">Beranda</button>
+        <button class="btn btn-outline-light" onclick="showSection('webdev', this)">Jenis Seni</button>
+        <button class="btn btn-outline-light" onclick="showSection('jadwal', this)">Pembelajaran Mingguan</button>
+        <button class="btn btn-outline-light" onclick="showSection('bantuan', this)">Bantuan</button>
+      </div>
+    </div>
+  
+  
+
+    <div class="container text-center">
+      <div class="row g-4">
+
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card shadow h-100">
+            <img src="download (2).jpeg" alt="Python" class="card-img-top">
+            <div class="card-body text-start">
+              <small class="text-muted">Materi</small>
+              <h5 class="mt-2">Soal</h5>
+              <p>Soal-soal dari materi sebelumnya untuk mengasah ingatan siswa. Berisi soal Seni Lukis, Seni Musik, Seni Tari</p>
+              <span class="badge bg-dark">Help</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card shadow h-100">
+            <img src="폴더의 문서 아이콘_ _ 프리미엄 벡터.jpeg" alt="HTML" class="card-img-top">
+            <div class="card-body text-start">
+              <small class="text-muted">Materi</small>
+              <h5 class="mt-2">Dokumen</h5>
+              <p>Berisikan Template dan Dokumen untuk membantu siswa agar bisa mengeskplor diri agar lebih paham akan materi yang di sampaikan.
+                
+                </p>
+              <span class="badge bg-dark">Help</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card shadow h-100">
+            <img src="벡터 악수 아이콘, 핸드 셰이크 아이콘, 협정, 손 흔들어 PNG, 일러스트 및 벡터 에 대한 무료 다운로드 - Pngtree.jpeg" alt="CSS" class="card-img-top">
+            <div class="card-body text-start">
+              <small class="text-muted">Materi</small>
+              <h5 class="mt-2">Kelas Tambahan</h5>
+              <p> Kelas Tambahann terdiri dari Kelas Lukis, Kelas Musik, Kelas Tari, Kelas Graphic Desainer
+                </p>
+              <span class="badge bg-dark">Help</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 ArtCourse. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+  function showSection(sectionId) {
+    const sections = ["courses", "webdev", "jadwal", "bantuan"];
+    sections.forEach(id => {
+      const section = document.getElementById(id);
+      if (section) {
+        section.style.display = (id === sectionId) ? "block" : "none";
+      }
+    });
+
+    const allButtons = document.querySelectorAll("button.btn-outline-light");
+    allButtons.forEach(btn => {
+      btn.classList.remove("active");
+      if (
+        (sectionId === "courses" && btn.textContent.includes("Beranda")) ||
+        (sectionId === "webdev" && btn.textContent.includes("Jenis Seni")) ||
+        (sectionId === "jadwal" && btn.textContent.includes("Pembelajaran Mingguan")) ||
+        (sectionId === "bantuan" && btn.textContent.includes("Bantuan"))
+      ) {
+        btn.classList.add("active");
+      }
+    });
+
+    history.pushState(null, "", `#${sectionId}`);
+  }
+
+  window.addEventListener("load", () => {
+    const hash = location.hash.replace("#", "");
+    if (["courses", "webdev", "jadwal", "bantuan"].includes(hash)) {
+      showSection(hash);
+    } else {
+      showSection("courses");
+    }
+  });
+
+  document.getElementById("toggleDark").addEventListener("click", function () {
+    document.body.classList.toggle("dark-mode");
+    this.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+  });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

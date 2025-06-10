@@ -1,0 +1,77 @@
+body {
+  background-color: #0d0d1f;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.card {
+  background-color: #1a1a2e;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+.bg-custom {
+    background-image: url(images/download.gif);
+    height: 100vh;
+    background-size:cover ;
+}
+
+.card img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 180px;
+  object-fit: cover;
+}
+
+.badge {
+  font-size: 0.75rem;
+}
+
+.btn-outline-light.active {
+  background-color: #483AA0;
+  color: white;
+  border-color: #483AA0;
+}
+
+main {
+  min-height: 86vh;
+}
+
+footer {
+  background-color: #483AA0;
+  padding: 20px 0;
+  text-align: center;
+  color: #ccc;
+}
+
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  .card img {
+    height: 140px;
+  }
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  #toggleDark {
+    top: 12px;
+    right: 16px;
+  }
+}

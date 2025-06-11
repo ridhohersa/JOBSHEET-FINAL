@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="id"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>ArtVenture - Materi 2D & 3D Painting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #232946 0%, #121629 100%);
+            color: #eebbc3;
+            overflow-x: hidden;
+        }
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            animation: bounce 1.5s infinite alternate;
+            color: #fffffe;
+        }
+        @keyframes bounce {
+            to { transform: translateY(-8px);}
+        }
+        .navbar {
+            background: #232946 !important;
+            box-shadow: 0 2px 8px #23294633;
+        }
+        .navbar-brand, .nav-link {
+            color: #fffffe !important;
+        }
+        .nav-link.active, .nav-link:focus, .nav-link:hover {
+            color: #eebbc3 !important;
+        }
+        h1, h2, h3, h4 {
+            color: #fffffe !important;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        .material-section {
+            background: #232946;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px #23294633;
+            padding: 2rem 2rem 1.5rem 2rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid #b8c1ec;
+        }
+        .material-section img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 12px #b8c1ec33;
+        }
+        .material-list li {
+            margin-bottom: 0.7rem;
+        }
+        .material-highlight {
+            background: #b8c1ec22;
+            border-left: 4px solid #b8c1ec;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            color: #b8c1ec;
+        }
+        .material-emoji {
+            font-size: 2.2rem;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+        .material-video {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 12px #b8c1ec33;
+        }
+        footer {
+            background-color: #0B1120;
+            padding: 50px 20px 20px;
+        }
+        .footer-section-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .footer-text {
+            font-size: 0.95rem;
+            color: #e2e8f0;
+        }
+        .footer-copy {
+            border-top: 1px solid #1e293b;
+            padding-top: 20px;
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            text-align: center;
+        }
+        .social-icons a {
+            color: white;
+            margin-right: 12px;
+            font-size: 1.4rem;
+            transition: transform 0.2s;
+        }
+        .social-icons a:hover {
+            transform: scale(1.2);
+            color: #38bdf8;
+        }
+        @media (max-width: 767px) {
+            .material-section {
+                padding: 1.2rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand logo" href="#">🎨 ArtVenture</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav nav nav-underline">
+                    <li class="nav-item"><a class="nav-link fw-bold" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold active" href="materi.html">Materi</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="about.html">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="contact.html">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Header -->
+    <header class="container" style="padding-top: 6.5rem; margin-bottom: 2rem;">
+        <div class="text-center">
+            <h1 class="section-title">Materi Lengkap 2D & 3D Painting</h1>
+            <p class="fs-5">Pelajari teknik dasar hingga lanjutan dalam seni lukis 2D dan 3D. Materi disusun bertahap, cocok untuk pemula maupun yang ingin memperdalam keterampilan.</p>
+        </div>
+    </header>
+    <!-- Materi 2D Painting -->
+    <section class="container material-section" id="materi-2d">
+        <h2><span class="material-emoji">🖍️</span> Dasar-dasar Melukis 2D</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Contoh Lukisan 2D">
+            </div>
+            <div class="col-md-6">
+                <ul class="material-list">
+                    <li><b>Pengenalan Alat & Media:</b> Pensil, kertas, cat air, cat minyak, tablet digital.</li>
+                    <li><b>Teknik Dasar:</b> Sketsa, outline, arsir, blending warna.</li>
+                    <li><b>Teori Warna:</b> Roda warna, harmoni warna, kontras, gradasi.</li>
+                    <li><b>Komposisi:</b> Rule of thirds, focal point, keseimbangan.</li>
+                    <li><b>Latihan:</b> Membuat sketsa objek sederhana, mewarnai bentuk dasar, latihan gradasi.</li>
+                </ul>
+                <div class="material-highlight">
+                    <b>Tips:</b> Latihan sketsa secara rutin setiap hari akan mempercepat perkembangan kemampuan!
+                </div>
+            </div>
+        </div>
+        <div class="mt-3">
+            <h5>Video Tutorial Dasar 2D Painting</h5>
+            <iframe class="material-video" height="315" src="https://www.youtube.com/embed/2R7hQpF9l4w" title="Tutorial Melukis 2D" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+    <!-- Materi Digital Illustration -->
+    <section class="container material-section" id="materi-digital">
+        <h2><span class="material-emoji">🖥️</span> Ilustrasi Digital</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6 order-md-2">
+                <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Contoh Ilustrasi Digital">
+            </div>
+            <div class="col-md-6 order-md-1">
+                <ul class="material-list">
+                    <li><b>Perangkat & Software:</b> Tablet gambar, stylus, aplikasi (Adobe Photoshop, Krita, Procreate, Medibang, dll).</li>
+                    <li><b>Layer & Blending:</b> Cara kerja layer, blending mode, masking.</li>
+                    <li><b>Brush & Tekstur:</b> Memilih brush, membuat tekstur, custom brush.</li>
+                    <li><b>Alur Kerja:</b> Sketsa, lineart, pewarnaan, finishing.</li>
+                    <li><b>Ekspor & Berbagi:</b> Menyimpan karya, format file, membagikan di media sosial.</li>
+                </ul>
+                <div class="material-highlight">
+                    <b>Tips:</b> Cobalah berbagai brush dan blending mode untuk menemukan gaya unikmu!
+                </div>
+            </div>
+        </div>
+        <div class="mt-3">
+            <h5>Video Tutorial Ilustrasi Digital</h5>
+            <iframe class="material-video" height="315" src="https://www.youtube.com/embed/2R7hQpF9l4w" title="Tutorial Ilustrasi Digital" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+    <!-- Materi 3D Painting & Sculpting -->
+    <section class="container material-section" id="materi-3d">
+        <h2><span class="material-emoji">🧊</span> Melukis & Memahat 3D</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" alt="Contoh Lukisan 3D">
+            </div>
+            <div class="col-md-6">
+                <ul class="material-list">
+                    <li><b>Software 3D:</b> Blender, ZBrush, Sculptris, Autodesk Maya.</li>
+                    <li><b>Modeling Dasar:</b> Membuat bentuk dasar (kubus, bola), extrude, sculpting sederhana.</li>
+                    <li><b>Teksturing:</b> Melukis tekstur langsung di model 3D, UV mapping, material.</li>
+                    <li><b>Rendering:</b> Pengaturan pencahayaan, kamera, ekspor gambar 3D.</li>
+                    <li><b>Latihan:</b> Membuat karakter sederhana, mewarnai objek 3D, render hasil akhir.</li>
+                </ul>
+                <div class="material-highlight">
+                    <b>Tips:</b> Mulai dari objek sederhana, lalu tingkatkan ke detail yang lebih rumit!
+                </div>
+            </div>
+        </div>
+        <div class="mt-3">
+            <h5>Video Tutorial Melukis & Memahat 3D</h5>
+            <iframe class="material-video" height="315" src="https://www.youtube.com/embed/TPrnSACiTJ4" title="Tutorial Melukis 3D" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+    <!-- Materi Modeling & Texturing -->
+    <section class="container material-section" id="materi-modeling">
+        <h2><span class="material-emoji">🌈</span> Modeling & Teksturing Lanjutan</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6 order-md-2">
+                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Contoh Modeling dan Teksturing">
+            </div>
+            <div class="col-md-6 order-md-1">
+                <ul class="material-list">
+                    <li><b>Pembelajaran Berbasis Proyek:</b> Membuat mural digital, desain karakter, environment art.</li>
+                    <li><b>Tekstur & Material:</b> Membuat tekstur realistis, material PBR, mapping tekstur.</li>
+                    <li><b>Kolaborasi:</b> Bekerja dalam tim, feedback, revisi karya.</li>
+                    <li><b>Portofolio:</b> Menyusun karya terbaik, tips presentasi, membangun personal branding.</li>
+                </ul>
+                <div class="material-highlight">
+                    <b>Tips:</b> Dokumentasikan proses dan hasil karya untuk memperkuat portofolio!
+                </div>
+            </div>
+        </div>
+        <div class="mt-3">
+            <h5>Video Tutorial Modeling & Teksturing</h5>
+            <iframe class="material-video" height="315" src="https://www.youtube.com/embed/7MRonzqYJgw" title="Tutorial Modeling dan Teksturing" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+    <!-- Resources Section -->
+    <section class="container material-section" id="resources">
+        <h2><span class="material-emoji">📚</span> Sumber Belajar & Referensi</h2>
+        <ul class="material-list">
+            <li><b>Website:</b> <a href="https://www.artstation.com/" target="_blank" class="text-info">ArtStation</a>, <a href="https://www.deviantart.com/" target="_blank" class="text-info">DeviantArt</a>, <a href="https://www.blender.org/" target="_blank" class="text-info">Blender</a></li>
+            <li><b>Channel YouTube:</b> Draw with Jazza, Blender Guru, Proko, Marc Brunet</li>
+            <li><b>Buku:</b> "Color and Light" (James Gurney), "Digital Painting Techniques" (3DTotal Publishing)</li>
+            <li><b>Forum & Komunitas:</b> Komunitas Discord Art, Grup Facebook Digital Painting Indonesia</li>
+        </ul>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container mt-5">
+            <div class="row align-items-start justify-content-between">
+                <div class="col-md-4 mb-4">
+                    <div class="footer-section-title">Tentang</div>
+                    <p class="footer-text">
+                        ArtVenture adalah platform interaktif untuk belajar seni lukis dengan cara yang menyenangkan dan berbasis tantangan. Kami percaya bahwa siapa pun bisa belajar seni lukis, kapan saja dan di mana saja.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-section-title">Kontak</div>
+                    <p class="footer-text">
+                        Email: <a href="mailto:support@codedex.io" class="text-white text-decoration-underline">ArtVenture@art.venture</a><br>
+                        Alamat: Jl. Brigjend H. Hasan Basri No. 6 Kayutangi Banjarmasin <br>
+                        Nomor Telepon: +62 123-4567-0920
+                    </p>
+                    <p class="footer-text mt-3">Terhubung dengan kami:</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copy mb-3">
+                © 2025 ArtVenture. Hak cipta dilindungi. <br>
+                Dibuat dengan ❤️ di Banjarmasin.
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome for social icons -->
+    <script src="https://kit.fontawesome.com/7e7e5b3c8e.js" crossorigin="anonymous"></script>
+</body>
+</html>

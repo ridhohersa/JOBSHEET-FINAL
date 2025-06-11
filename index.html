@@ -1,279 +1,514 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id"></html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CodeCourse</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>ArtVenture - Lukis, Cipta, Jelajah!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Night Full Moon Palette */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #232946 0%, #121629 100%);
+            color: #eebbc3;
+            overflow-x: hidden;
+        }
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            animation: bounce 1.5s infinite alternate;
+            color: #fffffe;
+        }
+        @keyframes bounce {
+            to { transform: translateY(-8px);}
+        }
+        .hero {
+            background: url('https://cdn.pixabay.com/photo/2017/01/31/13/14/animal-2023924_1280.png') right bottom/300px no-repeat, linear-gradient(135deg, #232946 0%, #121629 100%);
+            min-height: 100vh;
+        }
+        .hero-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #fffffe;
+            text-shadow: 0 2px 8px #23294688;
+        }
+        .cta-btn {
+            background: linear-gradient(90deg, #b8c1ec 0%, #eebbc3 100%);
+            color: #232946;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 2rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(232,187,195,0.15);
+            transition: background 0.2s, transform 0.2s;
+            animation: pulse 2s infinite;
+        }
+        .cta-btn:hover {
+            background: linear-gradient(90deg, #eebbc3 0%, #b8c1ec 100%);
+            transform: scale(1.05);
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 #eebbc366;}
+            50% { box-shadow: 0 0 16px 8px #eebbc366;}
+        }
+        .feature-card .emoji, .course-card .course-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: wiggle 1.2s infinite alternate;
+            display: inline-block;
+        }
+        @keyframes wiggle {
+            to { transform: rotate(-10deg);}
+        }
+        .course-card .course-emoji {
+            font-size: 2rem;
+            animation: float 2s infinite alternate;
+        }
+        @keyframes float {
+            to { transform: translateY(-8px);}
+        }    
+        footer {
+            background-color: #0B1120;
+            padding: 50px 20px 20px;
+        }
+        .footer-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        .footer-section-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .footer-text {
+            font-size: 0.95rem;
+            color: #e2e8f0;
+        }
+        .social-icons a {
+            color: white;
+            margin-right: 12px;
+            font-size: 1.4rem;
+            transition: transform 0.2s;
+        }
+        .social-icons a:hover {
+            transform: scale(1.2);
+            color: #38bdf8;
+        }
+        .footer-bottom {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-top: 20px;
+        }
+        .footer-copy {
+            border-top: 1px solid #1e293b;
+            padding-top: 20px;
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            text-align: center;
+        }
+        .feature-card, .course-card {
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+            background: #232946;
+            color: #eebbc3;
+            border: 1px solid #b8c1ec;
+        }
+        .feature-card-about {
+            background: #232946;
+            color: #eebbc3;
+            border: 1px solid #b8c1ec;
+        }
+        .feature-card:hover, .course-card:hover {
+            transform: translateY(-12px) scale(1.04) rotate(-2deg);
+            box-shadow: 0 8px 32px #b8c1ec44, 0 2px 8px rgba(0,0,0,0.06);
+            z-index: 2;
+        }
+        /* Section backgrounds */
+        .courses, section.courses {
+            background: #121629 !important;
+        }
+        /* Headings */
+        h2, h3, h4 {
+            color: #fffffe !important;
+        }
+        /* Form */
+        form.bg-white {
+            background: #232946 !important;
+            color: #eebbc3;
+            border: 1px solid #b8c1ec;
+        }
+        .form-label {
+            color: #b8c1ec;
+        }
+        .form-control {
+            background: #121629;
+            color: #eebbc3;
+            border: 1px solid #b8c1ec;
+        }
+        .form-control:focus {
+            background: #232946;
+            color: #fffffe;
+            border-color: #eebbc3;
+            box-shadow: 0 0 0 0.2rem #eebbc355;
+        }
+        /* Navbar */
+        .navbar {
+            background: #232946 !important;
+            box-shadow: 0 2px 8px #23294633;
+        }
+        .navbar-brand, .nav-link {
+            color: #fffffe !important;
+        }
+        .nav-link.active, .nav-link:focus, .nav-link:hover {
+            color: #eebbc3 !important;
+        }
+    </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark  sticky-top" style="background-color: #483AA0;">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">ArtCourse</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto nav nav-underline">
-          <li class="nav-item"><a class="nav-link active" href="#courses">Courses</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        </ul>
-  </nav>
-
-  <main>
-  <section id class="hero-seccion text-white text-center d-flex align-items-center bg-custom">
-   <div class="container">
-    <h1 class="fw-bold" style="font-size: 64px;">Create with Heart, Paint with <br> Purpose</h1>
-    <p class="lead">Master the art of painting with handcrafted courses from professional artists. Interactive, inspiring, and truly <br> transformative..</p>
-    <button class="btn btn-warning btn-lg fw-bold px-5 py-2" style="transition: background 0.2s, color 0.2s; background-color: #E3D095;">
-      <a class="text-decoration-none text-black" href="#journey" >Start Journey</a>
-    </button>
-    <h3 class="mt-4 opacity-10">Make with <i class="bi bi-heart-fill text-danger"></i></h3>
-   </div>
-  </section>
-
-    <section id="journey" class="hero-seccion text-white text-center d-flex align-items-center mt-5">
-   <div class="container">
-    <h1 class="fw-bold">Journey through the world of Art</h1>
-    <p class="lead">Learn to Art with fun, interactive courses handcrafted by industry experts and educators.</p>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand logo" href="#">🎨 ArtVenture</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav nav nav-underline">
+                    <li class="nav-item"><a class="nav-link fw-bold" href="#beranda">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="#materi">Materi</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="about.html">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="contact.html">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero d-flex align-items-center" style="padding: 4rem 0 2rem 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 hero-content">
+                    <h1>Lukis Imajinasi Anda dalam 2D & 3D!</h1>
+                    <p class="fs-5 mb-4">Selamat datang di ArtVenture, taman bermain kreatif Anda untuk menguasai seni lukis 2D dan 3D! Jelajahi pelajaran seru, galeri interaktif, dan komunitas seniman yang penuh semangat. Bebaskan kreativitas Anda di setiap goresan kuas!</p>
+                    <button class="cta-btn" onclick="window.location='#signup'">Mulai Berkarya 🎨</button>
+                </div>
+            </div>
+        </div>
     </section>
-
-  <section class="py-4" id="courses">
-    <div class="container text-center">
-      <div class="mb-4 d-flex justify-content-center flex-wrap gap-2">
-        <button class="btn btn-outline-light active" onclick="showSection('courses')">Populer</button>
-        <button class="btn btn-outline-light" onclick="showSection('webdev')">Jenis Lukis</button>
-        <button class="btn btn-outline-light" onclick="showSection('bantuan')">Bantuan</button>
-      </div>
-
-    <div class="container text-center py-5 my-5">
-      <div class="row g-4">
-      
-
-      <div class="row g-4">
-        <div class="col-sm-12 col-md-6 col-lg-4">
-          <div class="card shadow h-100">
-            <img src="images/Необычные постеры in 2022 _ Modern graphic art, Fashion poster design, Graphic design posters.jpeg" alt="" class="card-img-top">
-            <div class="card-body text-start">
-              <small class="text-muted">Materi</small>
-              <h5 class="mt-2">Graphic Desainer</h5>
-              <p>Membuat Karya Seni Menggunakan Alat Digital Seperti Poster, Infografis, Banner, Spanduk, DLL.</p>
-              <span class="badge bg-dark">Beginner</span>
+    <!-- Features Section -->
+    <section class="py-5" id="features">
+        <div class="container features">
+            <h2 class="text-center" style="font-family:'Montserrat',sans-serif;">Fitur Unggulan Website Kami</h2>
+            <p class="text-center mb-5">Lukis imajinasi Anda jadi lebih seru dengan fitur-fitur ini</p>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card feature-card h-100 text-center shadow-sm border-0 p-3">
+                        <div class="emoji">🖌️</div>
+                        <h3 class="mt-2" style="font-family:'Montserrat',sans-serif;">Lukisan Interaktif</h3>
+                        <p>Latih teknik melukis digital dan tradisional dengan alat serta latihan interaktif.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card feature-card h-100 text-center shadow-sm border-0 p-3">
+                        <div class="emoji">🖼️</div>
+                        <h3 class="mt-2" style="font-family:'Montserrat',sans-serif;">Galeri 2D & 3D</h3>
+                        <p>Pamerkan karya seni Anda di galeri 2D yang menawan dan galeri virtual 3D yang imersif. Dapatkan inspirasi dari karya orang lain!</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card feature-card h-100 text-center shadow-sm border-0 p-3">
+                        <div class="emoji">🤝</div>
+                        <h3 class="mt-2" style="font-family:'Montserrat',sans-serif;">Komunitas Seniman</h3>
+                        <p>Terhubung, kolaborasi, dan berbagi masukan dengan pelukis dari seluruh dunia.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card feature-card h-100 text-center shadow-sm border-0 p-3">
+                        <div class="emoji">🏆</div>
+                        <h3 class="mt-2" style="font-family:'Montserrat',sans-serif;">Tantangan Kreatif</h3>
+                        <p>Ikuti tantangan seni mingguan dan raih lencana saat Anda mengembangkan kemampuan seni.</p>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-
-        <div class="col-sm-12 col-md-6 col-lg-4">
-          <div class="card shadow h-100">
-            <img src="images/download.jpeg" alt="" class="card-img-top">
-            <div class="card-body text-start">
-              <small class="text-muted">Materi</small>
-              <h5 class="mt-2">Seni Lukis</h5>
-              <p>Membuat Karya Seni Menggunakan Kanvas, Kertas dan Bisa Menggunakan Pensil, Cat air, DLL.</p>
-              <span class="badge bg-dark">Beginner</span>
+    </section>
+    <!-- Courses Section -->
+    <section class="courses py-5" id="courses">
+        <div class="container">
+            <h2 class="text-center mb-4" style="font-family:'Montserrat',sans-serif;">Kursus Seni Kami</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-3 text-ce">
+                    <div class="card course-card h-100 shadow-sm border-0 p-3" data-bs-toggle="modal" data-bs-target="#courseModal1" style="cursor:pointer;">
+                        <div class="course-emoji text-cen">🖍️</div>
+                        <h4 style="font-family:'Montserrat',sans-serif;">Dasar Lukis 2D</h4>
+                        <p>Pelajari dasar seni 2D: sketsa, teori warna, dan teknik melukis digital.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card course-card h-100 shadow-sm border-0 p-3" data-bs-toggle="modal" data-bs-target="#courseModal2" style="cursor:pointer;">
+                        <div class="course-emoji">🖥️</div>
+                        <h4 style="font-family:'Montserrat',sans-serif;">Ilustrasi Digital</h4>
+                        <p>Kuasai alat digital untuk membuat ilustrasi, komik, dan konsep seni yang menakjubkan.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card course-card h-100 shadow-sm border-0 p-3" data-bs-toggle="modal" data-bs-target="#courseModal3" style="cursor:pointer;">
+                        <div class="course-emoji">🧊</div>
+                        <h4 style="font-family:'Montserrat',sans-serif;">Lukis & Pahat 3D</h4>
+                        <p>Jelajahi seni lukis dan pahat 3D, dari bentuk dasar hingga model dan tekstur detail.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card course-card h-100 shadow-sm border-0 p-3" data-bs-toggle="modal" data-bs-target="#courseModal4" style="cursor:pointer;">
+                        <div class="course-emoji">🌈</div>
+                        <h4 style="font-family:'Montserrat',sans-serif;">Modeling dan Tekstur</h4>
+                        <p>Terapkan kemampuan Anda dalam proyek seru: mural, desain karakter, dan karya kolaboratif.</p>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-
-        <div class="col-sm-12 col-md-6 col-lg-4">
-          <div class="card shadow h-100">
-            <img src="images/download (1).jpeg" alt="" class="card-img-top">
-            <div class="card-body text-start">
-              <small class="text-muted">Materi</small>
-              <h5 class="mt-2">Seni Musik</h5>
-              <p>Membuat Karya Seni     Menggunakan Alat-alat Musik Seperti Gitar, Piano, Panting. Harmonika, DLL.</p>
-              <span class="badge bg-dark">Beginner</span>
+        <!-- Course Modals -->
+        <!-- Modal 1 -->
+        <div class="modal fade" id="courseModal1" tabindex="-1" aria-labelledby="courseModalLabel1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-white" style="background:#232946!important;color:#eebbc3;border:1px solid #b8c1ec;">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title" id="courseModalLabel1" style="font-family:'Montserrat',sans-serif;color:#fffffe;">Dasar Lukis 2D</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            <li>Pengenalan sketsa dan seni garis</li>
+                            <li>Pemahaman teori warna dan palet</li>
+                            <li>Teknik bayangan dan pencahayaan</li>
+                            <li>Latihan melukis digital langsung</li>
+                        </ul>
+                        <p class="mt-3">Sangat cocok untuk pemula yang ingin membangun dasar seni 2D yang kuat!</p>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+        <!-- Modal 2 -->
+        <div class="modal fade" id="courseModal2" tabindex="-1" aria-labelledby="courseModalLabel2" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-white" style="background:#232946!important;color:#eebbc3;border:1px solid #b8c1ec;">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title" id="courseModalLabel2" style="font-family:'Montserrat',sans-serif;color:#fffffe;">Ilustrasi Digital</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            <li>Menggunakan tablet gambar dan software ilustrasi</li>
+                            <li>Manajemen layer dan mode blending</li>
+                            <li>Membuat komik dan konsep seni</li>
+                            <li>Mengekspor dan membagikan karya digital Anda</li>
+                        </ul>
+                        <p class="mt-3">Bawa karya seni Anda ke level berikutnya dengan alat digital dan alur kerja kreatif.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 3 -->
+        <div class="modal fade" id="courseModal3" tabindex="-1" aria-labelledby="courseModalLabel3" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-white" style="background:#232946!important;color:#eebbc3;border:1px solid #b8c1ec;">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title" id="courseModalLabel3" style="font-family:'Montserrat',sans-serif;color:#fffffe;">Lukis & Pahat 3D</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            <li>Pengenalan software modeling 3D</li>
+                            <li>Dasar pemahatan dan manipulasi mesh</li>
+                            <li>Melukis tekstur pada model 3D</li>
+                            <li>Rendering dan presentasi karya 3D Anda</li>
+                        </ul>
+                        <p class="mt-3">Temukan dunia seni 3D dan hidupkan karya Anda!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal 4 -->
+        <div class="modal fade" id="courseModal4" tabindex="-1" aria-labelledby="courseModalLabel4" aria-hidden="true"></div>
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-white" style="background:#232946!important;color:#eebbc3;border:1px solid #b8c1ec;">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title" id="courseModalLabel4" style="font-family:'Montserrat',sans-serif;color:#fffffe;">Modeling dan Tekstur</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            <li>Pembelajaran berbasis proyek: mural, karakter, dan lainnya</li>
+                            <li>Karya kolaboratif dan umpan balik</li>
+                            <li>Tekstur dan material tingkat lanjut</li>
+                            <li>Tips membangun portofolio</li>
+                        </ul>
+                        <p class="mt-3">Terapkan kemampuan Anda dalam proyek kreatif dan tunjukkan imajinasi Anda!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-5">
+            <a href="materi.html" class="cta-btn" style="font-size:1.15rem; text-decoration:none;">
+                Jelajahi Semua Imajinasi 🚀
+            </a>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section class="py-5" id="about">
+        <div class="container">
+            <div class="row align-items-center mt-5" style="margin-bottom: 200px;">
+                <!-- Image Left -->
+                <div class="col-md-6 d-flex justify-content-center mb-3 mb-md-0">
+                    <div class="emoji" style="font-size:4rem;">💡</div>
+                </div>
+                <!-- Text Right -->
+                <div class="col-md-6">
+                    <div class="card feature-card-about shadow-sm border-0 p-4 h-100">
+                        <h3 class="mt-2" style="font-family:'Montserrat',sans-serif;">Mengapa ArtVenture?</h3>
+                        <p>Kami percaya semua orang bisa menjadi seniman! Misi kami adalah membuat seni lukis 2D dan 3D mudah diakses, menarik, dan menyenangkan untuk semua usia dan tingkat kemampuan.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center" style="margin-bottom: 200px;">
+                <!-- Text Left -->
+                <div class="col-md-6 mb-">
+                    <div class="card feature-card-about shadow-sm border-0 p-4 h-100 ">
+                        <h3 class="mt-2" style="font-family:'Montserrat',sans-serif;">Untuk Semua Kreator</h3>
+                        <p>Baik Anda pemula maupun profesional, ArtVenture menyesuaikan dengan kecepatan dan gaya Anda. Bergabunglah dengan komunitas suportif dan pancarkan kreativitas Anda!</p>
+                    </div>
+                </div>
+                <!-- Image Right -->
+                <div class="col-md-6 d-flex justify-content-center mb-3 mb-md-0">
+                    <div class="emoji" style="font-size:4rem;">👩‍🎨</div>
+                </div>
+            </div>
+        </div>
+        <!-- Special Thanks guru -->
+        <div class="container">
+            <h2 class="text-center mb-4" style="font-family:'Montserrat',sans-serif;">Ucapan Terima Kasih</h2>
+            <div class="row align-items-center mb-5">
+                <!-- Image Left -->
+                <div class="col-md-6 d-flex justify-content-end mb-3 mb-md-0" style="padding-right: 0;">
+                    <img src="images/bu_widia_canva-removebg-preview (1).png" alt="" style="max-width: 450px; height: auto;">
+                </div>
+                <!-- Text Right -->
+                <div class="col-md-5 d-flex align-items-center" style="padding-left: 0;">
+                    <div class="card feature-card-about shadow-sm border-0 p-4 h-100">
+                        <h3 class="mt-2" style="font-family:'Montserrat',sans-serif;">Widiawati, S.Pd</h3>
+                        <p>Widiawati, S.Pd adalah seorang guru seni musik yang berpengalaman dan berdedikasi. Dengan pengetahuan mendalam tentang seni musik dan metode pengajaran yang inovatif, beliau telah membantu banyak siswa SMKN 2 Banjarmasin mengembangkan keterampilan seni musik mereka. Mengajar di SMK 2 Negeri Banjarmasin sebagai guru seni sejak 1 Januari 2010.</p>
+                        <ul class="d-flex gap-3 list-unstyled">
+                            <li><a href="" class="text-white">@Mariani</a></li>
+                            <li><i class="bi bi-mortarboard-fill"></i> Guru Seni Budaya</li>
+                            <li><i class="bi bi-school"></i> SMKN 2 Banjarmasin</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Signup Section -->
+    <section class="courses py-5" id="signup">
+        <div class="container">
+            <h2 class="text-center mb-4" style="font-family:'Montserrat',sans-serif;">Siap Melukis?</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4 text-center">
+                    <button type="button" class="cta-btn w-100" data-bs-toggle="modal" data-bs-target="#signupModal">
+                        Daftar & Berkarya! 🖌️
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Signup Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-white" style="background:#232946!important;color:#eebbc3;border:1px solid #b8c1ec;">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="signupModalLabel" style="font-family:'Montserrat',sans-serif;color:#fffffe;">Daftar ArtVenture</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="signupForm" class="p-2">
+                        <div class="mb-3">
+                            <label for="name" class="form-label fw-bold" style="color:#b8c1ec;">Nama:</label>
+                            <input type="text" class="form-control" id="name" name="name" required style="background:#121629;color:#eebbc3;border:1px solid #b8c1ec;">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-bold" style="color:#b8c1ec;">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" required style="background:#121629;color:#eebbc3;border:1px solid #b8c1ec;">
+                        </div>
+                        <button type="submit" class="cta-btn w-100">Daftar & Berkarya! 🖌️</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  </div>
-  </section>
-
-  <section class="py-4" id="webdev" style="display: none;">
-    <div class="container text-center">
-      <div class="mb-4 d-flex justify-content-center flex-wrap gap-2">
-        <button class="btn btn-outline-light active" onclick="showSection('courses', this)">Populer</button>
-        <button class="btn btn-outline-light" onclick="showSection('webdev', this)">Jenis Lukis</button>
-        <button class="btn btn-outline-light" onclick="showSection('bantuan', this)">Bantuan</button>
-      </div>
-    </div>
-  
-  
-
-    <div class="container text-center py-5 my-5">
-      <div class="row g-4">
-
-        <div class="col-sm-12 col-md-6 col-lg-4">
-          <div class="card shadow h-100">
-            <img src="images/Необычные постеры in 2022 _ Modern graphic art, Fashion poster design, Graphic design posters.jpeg" alt="Python" class="card-img-top">
-            <div class="card-body text-start">
-              <small class="text-muted">Materi</small>
-              <h5 class="mt-2">Seni Lukis</h5>
-              <p>Seni Lukis Realisme
-                Menggambarkan objek secara nyata seperti apa yang dilihat mata.
-                Contoh: potret manusia, pemandangan alam, benda mati.</p>
-              <span class="badge bg-dark">Beginner</span>
-            </div>
-          </div>
-        </div>
-  
-        <div class="col-sm-12 col-md-6 col-lg-4">
-          <div class="card shadow h-100">
-            <img src="images/download.jpeg" alt="HTML" class="card-img-top">
-            <div class="card-body text-start">
-              <small class="text-muted">Materi</small>
-              <h5 class="mt-2">Seni Tari</h5>
-              <p>Tari Tradisional
-                Tari yang berasal dari budaya dan adat istiadat suatu daerah. Biasanya diwariskan turun-temurun.
-                
-                Tari Rakyat: Tumbuh dari masyarakat (contoh: Tari Jaipong, Tari Saman).
-                
-                Tari Klasik: Berkembang di lingkungan keraton atau bangsawan (contoh: Tari Bedhaya, Tari Srimpi).
-                
-                </p>
-              <span class="badge bg-dark">Beginner</span>
-            </div>
-          </div>
-        </div>
-  
-        <div class="col-sm-12 col-md-6 col-lg-4">
-          <div class="card shadow h-100">
-            <img src="images/download (1).jpeg" alt="CSS" class="card-img-top">
-            <div class="card-body text-start">
-              <small class="text-muted">Materi</small>
-              <h5 class="mt-2">Seni Musik</h5>
-              <p> Musik Modern / Populer
-                Musik yang berkembang sesuai tren dan teknologi zaman sekarang.
-                 Genre umum:
-                 PopRockJazz BluesHip Hop
-                 R&B
-                Electronic
-                </p>
-              <span class="badge bg-dark">Beginner</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</section>
-
-<section class="py-4" id="bantuan" style="display: none;">
-    <div class="container text-center">
-      <div class="mb-4 d-flex justify-content-center flex-wrap gap-2">
-        <button class="btn btn-outline-light active" onclick="showSection('courses', this)">Populer</button>
-        <button class="btn btn-outline-light" onclick="showSection('webdev', this)">Jenis Lukis</button>
-        <button class="btn btn-outline-light" onclick="showSection('bantuan', this)">Bantuan</button>
-      </div>
-    </div>
-  
-  
-
-    <div class="container text-center py-5 my-5">
-      <div class="row g-4">
-
-        <div class="col-sm-12 col-md-6 col-lg-4">
-          <div class="card shadow h-100">
-            <div class="card-body text-start">
-              <small class="text-muted">Materi</small>
-              <h5 class="mt-2">Pengertian Seni</h5>
-
-              <span class="badge bg-dark">Minggu 1</span>
-            </div>
-          </div>
-        </div>
-  
-        <div class="col-sm-12 col-md-6 col-lg-4">
-          <div class="card shadow h-100">
-            <div class="card-body text-start">
-              <small class="text-muted">Materi</small>
-              <h5 class="mt-2">Seni Lukis</h5>
-
-              <span class="badge bg-dark">Minggu 2</span>
-            </div>
-          </div>
-        </div>
-  
-        <div class="col-sm-12 col-md-6 col-lg-4">
-          <div class="card shadow h-100">
-            <div class="card-body text-start">
-              <small class="text-muted">Materi</small>
-              <h5 class="mt-2">LKPD</h5>
-
-              <span class="badge bg-dark">Minggu 3</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-    
-  <section>
-    <div class="container mt-5">
-    <h1 class="text-center">Halaman Utama</h1>
-    <p class="text-center">Ini adalah halaman utama dari web media pembelajaran.</p>
-  </div>
-
-  </section>
-        
-  </main>
-
-
-<footer class="container-fluid text-white mt-5 p-5 text-wrap text-start">
-        <div class="d-flex flex-wrap justify-content-between">
-            <div class="Tentang ms-lg-5 flex-column flex-wrap">
-                <h4 class=" fw-bold text-start" style="color: #E3D095;">Tentang ArtCourse</h4>
-                <p class="mb-5 w-75 text-warp text-start ">
-                    ArtCourse adalah platform yang didedikasikan untuk seni piksel, menyediakan alat dan sumber daya untuk
-                    membantu seniman dari semua tingkat keterampilan. Kami percaya bahwa seni piksel adalah bentuk ekspresi
-                    yang unik dan kami ingin membuatnya dapat diakses oleh semua orang.
-                </p>
-            </div>
-
-            <div class="Navigasi ms-lg-5 ms-md-0 me-lg-5 d-flex flex-column">
-                <h4 class="fw-bold" style="color: #E3D095;">Navigasi</h4>
-                <a class="text-white text-decoration-none" href="#">Beranda</a>
-                <a class="text-white text-decoration-none" href="#">Jenis</a>
-                <a class="text-white text-decoration-none" href="#">Bantuan</a>
-            </div>
-
-            <div class="Web ms-lg-5 ms-md-0 me-lg-5 d-flex flex-column">
-                <h4 class="fw-bold" style="color: #E3D095;">Website Resmi</h4>
-                <a class="text-white text-decoration-none" href="#">ArtCourse</a>
-                <a class="text-white text-decoration-none" href="#">Indonesian Visual Art Archive</a>
-            </div>
-
-            <div class="Kontak ms-lg-5 ms-md-0 me-lg-5 d-flex flex-column">
-                <h4 class="fw-bold" style="color: #E3D095;">Kontak</h4>
-                <p><i class="bi bi-envelope-at-fill"></i> ridhohersa110@gmail.com</p>
-                <p><i class="bi bi-telephone-fill"></i> Telepon: 021-12345678</p>
-                <p><i class="bi bi-geo-alt-fill"></i> Jl. Raya Lukis No. 69, Banjarmasin</p>
+    <footer>
+        <div class="container mt-5">
+            <div class="row align-items-start justify-content-between">
+                <div class="col-md-4 mb-4">
+                    <div class="footer-section-title">Tentang</div>
+                    <p class="footer-text">
+                        ArtVenture adalah platform interaktif untuk belajar seni lukis dengan cara yang menyenangkan dan berbasis tantangan. Kami percaya bahwa siapa pun bisa belajar seni lukis, kapan saja dan di mana saja.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <div class="footer-section-title">Kontak</div>
+                    <p class="footer-text">
+                        Email: <a href="mailto:support@codedex.io" class="text-white text-decoration-underline">ArtVenture@art.venture</a><br>
+                        Alamat: Jl. Brigjend H. Hasan Basri No. 6 Kayutangi Banjarmasin <br>
+                        Nomor Telepon: +62 123-4567-0920
+                    </p>
+                </div>
             </div>
         </div>
-        <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
-        <div class="d-flex flex-column align-items-center mt-3">
-            <h4 class="fw-bold" style="color: #E3D095;">Ikuti Kami</h4>
-            <div class="d-flex">
-                <a href="#" class="text-white me-3 fs-5"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="text-white me-3 fs-5"><i class="bi bi-twitter"></i></a>
-                <a href="https://www.instagram.com/alfaaarez___/" class="text-white me-3 fs-5"><i class="bi bi-instagram"></i></a>
-                <a href="https://github.com/Alfarez-dev" class="text-white fs-5"><i class="bi bi-github"></i></a>
-            </div>
-            <br>
-            <div class="d-flex">
-                <p>
-                    &copy; 2025 ArtCourse. All rights reserved. | Made with <i class="bi bi-heart-fill text-danger"></i>
-                    <a href="">Terms Privacy Policy</a>
-                </p>
-            </div>
+        <div class="footer-copy mb-3">
+            © 2025 ArtVenture. Hak cipta dilindungi. <br>
+            Dibuat dengan ❤️ di Banjarmasin.
         </div>
     </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let toast = document.createElement('div');
+            toast.className = 'toast align-items-center text-bg-success border-0 show position-fixed bottom-0 end-0 m-4';
+            toast.style.zIndex = 9999;
+            toast.setAttribute('role', 'alert');
+            toast.setAttribute('aria-live', 'assertive');
+            toast.setAttribute('aria-atomic', 'true');
+            toast.innerHTML = `
+                <div class="d-flex">
+                    <div class="toast-body fw-bold">
+                        🎉 Terima kasih telah mendaftar, ${document.getElementById('name').value || 'Seniman'}!<br>
+                        Cek email Anda untuk info lebih lanjut.
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Tutup"></button>
+                </div>
+            `;
+            document.body.appendChild(toast);
+            let bsToast = new bootstrap.Toast(toast, { delay: 4000 });
+            bsToast.show();
+            toast.addEventListener('hidden.bs.toast', () => toast.remove());
+            // Sembunyikan modal setelah submit
+            let modal = bootstrap.Modal.getInstance(document.getElementById('signupModal'));
+            modal.hide();
+            this.reset();
+            // Redirect ke materi.html setelah delay singkat
+            setTimeout(function() {
+                window.location.href = "materi.html";
+            }, 800);
+        });
+    </script>
 </body>
 </html>

@@ -118,11 +118,22 @@
                 padding: 1.2rem 0.8rem;
             }
         }
+        /* Animation for scroll */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+            will-change: opacity, transform;
+        }
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: none;
+        }
     </style>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scroll-animate">
         <div class="container">
             <a class="navbar-brand logo" href="#">🎨 ArtVenture</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -139,14 +150,14 @@
         </div>
     </nav>
     <!-- Header -->
-    <header class="container" style="padding-top: 6.5rem; margin-bottom: 2rem;">
+    <header class="container scroll-animate" style="padding-top: 6.5rem; margin-bottom: 2rem;">
         <div class="text-center">
             <h1 class="section-title">Materi Lengkap 2D & 3D Painting</h1>
             <p class="fs-5">Pelajari teknik dasar hingga lanjutan dalam seni lukis 2D dan 3D. Materi disusun bertahap, cocok untuk pemula maupun yang ingin memperdalam keterampilan.</p>
         </div>
     </header>
     <!-- Materi 2D Painting -->
-    <section class="container material-section" id="materi-2d">
+    <section class="container material-section scroll-animate" id="materi-2d">
         <h2><span class="material-emoji">🖍️</span> Dasar-dasar Melukis 2D</h2>
         <div class="row align-items-center">
             <div class="col-md-6">
@@ -171,7 +182,7 @@
         </div>
     </section>
     <!-- Materi Digital Illustration -->
-    <section class="container material-section" id="materi-digital">
+    <section class="container material-section scroll-animate" id="materi-digital">
         <h2><span class="material-emoji">🖥️</span> Ilustrasi Digital</h2>
         <div class="row align-items-center">
             <div class="col-md-6 order-md-2">
@@ -196,7 +207,7 @@
         </div>
     </section>
     <!-- Materi 3D Painting & Sculpting -->
-    <section class="container material-section" id="materi-3d">
+    <section class="container material-section scroll-animate" id="materi-3d">
         <h2><span class="material-emoji">🧊</span> Melukis & Memahat 3D</h2>
         <div class="row align-items-center">
             <div class="col-md-6">
@@ -221,7 +232,7 @@
         </div>
     </section>
     <!-- Materi Modeling & Texturing -->
-    <section class="container material-section" id="materi-modeling">
+    <section class="container material-section scroll-animate" id="materi-modeling">
         <h2><span class="material-emoji">🌈</span> Modeling & Teksturing Lanjutan</h2>
         <div class="row align-items-center">
             <div class="col-md-6 order-md-2">
@@ -245,7 +256,7 @@
         </div>
     </section>
     <!-- Resources Section -->
-    <section class="container material-section" id="resources">
+    <section class="container material-section scroll-animate" id="resources">
         <h2><span class="material-emoji">📚</span> Sumber Belajar & Referensi</h2>
         <ul class="material-list">
             <li><b>Website:</b> <a href="https://www.artstation.com/" target="_blank" class="text-info">ArtStation</a>, <a href="https://www.deviantart.com/" target="_blank" class="text-info">DeviantArt</a>, <a href="https://www.blender.org/" target="_blank" class="text-info">Blender</a></li>
@@ -254,7 +265,7 @@
             <li><b>Forum & Komunitas:</b> Komunitas Discord Art, Grup Facebook Digital Painting Indonesia</li>
         </ul>
     </section>
-<footer>
+<footer class="scroll-animate">
     <div class="container mt-5">
         <div class="row align-items-start justify-content-between">
             <div class="col-md-4 mb-4">
@@ -288,5 +299,20 @@
     </div>
 </footer>
     <script src="https://kit.fontawesome.com/7e7e5b3c8e.js" crossorigin="anonymous"></script>
+    <script>
+    // Scroll animation for all .scroll-animate elements
+    function onScrollAnimate() {
+        const elements = document.querySelectorAll('.scroll-animate');
+        const windowHeight = window.innerHeight;
+        elements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < windowHeight - 60) {
+                el.classList.add('visible');
+            }
+        });
+    }
+    window.addEventListener('scroll', onScrollAnimate);
+    window.addEventListener('DOMContentLoaded', onScrollAnimate);
+    </script>
 </body>
 </html>

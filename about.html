@@ -62,10 +62,22 @@
             color: #94a3b8;
             text-align: center;
         }
+        /* Animation styles */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+            will-change: opacity, transform;
+        }
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: none;
+        }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div id="main-content">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scroll-animate">
         <div class="container">
             <a class="navbar-brand logo" href="#">🎨 ArtVenture</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -82,16 +94,16 @@
         </div>
     </nav>
     <!-- About Teacher Section -->
-    <section class="py-5" id="about-teacher" style="margin-top:80px;">
+    <section class="py-5 scroll-animate" id="about-teacher" style="margin-top:80px;">
         <div class="container">
             <h2 class="text-center mb-4" style="font-family:'Montserrat',sans-serif;">Tentang Guru</h2>
             <div class="row align-items-center mb-5">
                 <!-- Image Left -->
-                <div class="col-md-6 d-flex justify-content-end mb-3 mb-md-0" style="padding-right: 0;">
+                <div class="col-md-6 d-flex justify-content-end mb-3 mb-md-0 scroll-animate" style="padding-right: 0;">
                     <img src="images/bu_widia_canva-removebg-preview (1).png" alt="Widiawati, S.Pd" style="max-width: 450px; height: auto;">
                 </div>
                 <!-- Text Right -->
-                <div class="col-md-5 d-flex align-items-center" style="padding-left: 0;">
+                <div class="col-md-5 d-flex align-items-center scroll-animate" style="padding-left: 0;">
                     <div class="card feature-card-about shadow-sm border-0 p-4 h-100">
                         <h3 class="mt-2" style="font-family:'Montserrat',sans-serif;">Widiawati, S.Pd</h3>
                         <p>
@@ -107,7 +119,7 @@
             </div>
         </div>
     </section>
-<footer>
+<footer class="scroll-animate">
     <div class="container mt-5">
         <div class="row align-items-start justify-content-between">
             <div class="col-md-4 mb-4">
@@ -140,7 +152,22 @@
         </div>
     </div>
 </footer>
-
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    // Animation on scroll
+    function animateOnScroll() {
+        const elements = document.querySelectorAll('.scroll-animate');
+        const windowHeight = window.innerHeight;
+        elements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < windowHeight - 60) {
+                el.classList.add('visible');
+            }
+        });
+    }
+    document.addEventListener('DOMContentLoaded', animateOnScroll);
+    window.addEventListener('scroll', animateOnScroll);
+    </script>
 </body>
 </html>

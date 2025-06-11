@@ -1,0 +1,63 @@
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #232946 0%, #121629 100%);
+            color: #eebbc3;
+        }
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #fffffe;
+        }
+        .feature-card-about {
+            background: #232946;
+            color: #eebbc3;
+            border: 1px solid #b8c1ec;
+        }
+        h2, h3 {
+            color: #fffffe !important;
+        }
+        .navbar {
+            background: #232946 !important;
+            box-shadow: 0 2px 8px #23294633;
+        }
+        .navbar-brand, .nav-link {
+            color: #fffffe !important;
+        }
+        .nav-link.active, .nav-link:focus, .nav-link:hover {
+            color: #eebbc3 !important;
+        }
+        footer {
+            background-color: #0B1120;
+            padding: 50px 20px 20px;
+        }
+        .footer-section-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .footer-text {
+            font-size: 0.95rem;
+            color: #e2e8f0;
+        }
+        .footer-copy {
+            border-top: 1px solid #1e293b;
+            padding-top: 20px;
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            text-align: center;
+        }
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+            will-change: opacity, transform;
+        }
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: none;
+        }

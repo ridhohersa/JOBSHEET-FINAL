@@ -7,132 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #232946 0%, #121629 100%);
-            color: #eebbc3;
-            overflow-x: hidden;
-        }
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
-            letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            animation: bounce 1.5s infinite alternate;
-            color: #fffffe;
-        }
-        @keyframes bounce {
-            to { transform: translateY(-8px);}
-        }
-        .navbar {
-            background: #232946 !important;
-            box-shadow: 0 2px 8px #23294633;
-        }
-        .navbar-brand, .nav-link {
-            color: #fffffe !important;
-        }
-        .nav-link.active, .nav-link:focus, .nav-link:hover {
-            color: #eebbc3 !important;
-        }
-        h1, h2, h3, h4 {
-            color: #fffffe !important;
-            font-family: 'Montserrat', sans-serif;
-        }
-        .section-title {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
-        .material-section {
-            background: #232946;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px #23294633;
-            padding: 2rem 2rem 1.5rem 2rem;
-            margin-bottom: 2.5rem;
-            border: 1px solid #b8c1ec;
-        }
-        .material-section img {
-            max-width: 100%;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 12px #b8c1ec33;
-        }
-        .material-list li {
-            margin-bottom: 0.7rem;
-        }
-        .material-highlight {
-            background: #b8c1ec22;
-            border-left: 4px solid #b8c1ec;
-            padding: 0.8rem 1.2rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            color: #b8c1ec;
-        }
-        .material-emoji {
-            font-size: 2.2rem;
-            margin-right: 0.5rem;
-            vertical-align: middle;
-        }
-        .material-video {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 12px #b8c1ec33;
-        }
-        footer {
-            background-color: #0B1120;
-            padding: 50px 20px 20px;
-        }
-        .footer-section-title {
-            font-size: 1rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .footer-text {
-            font-size: 0.95rem;
-            color: #e2e8f0;
-        }
-        .footer-copy {
-            border-top: 1px solid #1e293b;
-            padding-top: 20px;
-            margin-top: 40px;
-            font-size: 0.85rem;
-            color: #94a3b8;
-            text-align: center;
-        }
-        .social-icons a {
-            color: white;
-            margin-right: 12px;
-            font-size: 1.4rem;
-            transition: transform 0.2s;
-        }
-        .social-icons a:hover {
-            transform: scale(1.2);
-            color: #38bdf8;
-        }
-        @media (max-width: 767px) {
-            .material-section {
-                padding: 1.2rem 0.8rem;
-            }
-        }
-        /* Animation for scroll */
-        .scroll-animate {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
-            will-change: opacity, transform;
-        }
-        .scroll-animate.visible {
-            opacity: 1;
-            transform: none;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/materi.css">
 </head>
 <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top scroll-animate">
         <div class="container">
             <a class="navbar-brand logo" href="#">🎨 ArtVenture</a>
@@ -149,14 +26,12 @@
             </div>
         </div>
     </nav>
-    <!-- Header -->
     <header class="container scroll-animate" style="padding-top: 6.5rem; margin-bottom: 2rem;">
         <div class="text-center">
             <h1 class="section-title">Materi Lengkap 2D & 3D Painting</h1>
             <p class="fs-5">Pelajari teknik dasar hingga lanjutan dalam seni lukis 2D dan 3D. Materi disusun bertahap, cocok untuk pemula maupun yang ingin memperdalam keterampilan.</p>
         </div>
     </header>
-    <!-- Materi 2D Painting -->
     <section class="container material-section scroll-animate" id="materi-2d">
         <h2><span class="material-emoji">🖍️</span> Dasar-dasar Melukis 2D</h2>
         <div class="row align-items-center">
@@ -181,7 +56,6 @@
             <iframe class="material-video" height="315" src="https://www.youtube.com/embed/2R7hQpF9l4w" title="Tutorial Melukis 2D" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
-    <!-- Materi Digital Illustration -->
     <section class="container material-section scroll-animate" id="materi-digital">
         <h2><span class="material-emoji">🖥️</span> Ilustrasi Digital</h2>
         <div class="row align-items-center">
@@ -206,7 +80,6 @@
             <iframe class="material-video" height="315" src="https://www.youtube.com/embed/2R7hQpF9l4w" title="Tutorial Ilustrasi Digital" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
-    <!-- Materi 3D Painting & Sculpting -->
     <section class="container material-section scroll-animate" id="materi-3d">
         <h2><span class="material-emoji">🧊</span> Melukis & Memahat 3D</h2>
         <div class="row align-items-center">
@@ -231,7 +104,6 @@
             <iframe class="material-video" height="315" src="https://www.youtube.com/embed/TPrnSACiTJ4" title="Tutorial Melukis 3D" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
-    <!-- Materi Modeling & Texturing -->
     <section class="container material-section scroll-animate" id="materi-modeling">
         <h2><span class="material-emoji">🌈</span> Modeling & Teksturing Lanjutan</h2>
         <div class="row align-items-center">
@@ -255,7 +127,6 @@
             <iframe class="material-video" height="315" src="https://www.youtube.com/embed/7MRonzqYJgw" title="Tutorial Modeling dan Teksturing" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
-    <!-- Resources Section -->
     <section class="container material-section scroll-animate" id="resources">
         <h2><span class="material-emoji">📚</span> Sumber Belajar & Referensi</h2>
         <ul class="material-list">
@@ -304,55 +175,7 @@
     </div>
 </footer>
     <script src="https://kit.fontawesome.com/7e7e5b3c8e.js" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS Bundle (required for navbar toggler) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-    // Scroll animation for all .scroll-animate elements
-    function onScrollAnimate() {
-        const elements = document.querySelectorAll('.scroll-animate');
-        const windowHeight = window.innerHeight;
-        elements.forEach(el => {
-            const rect = el.getBoundingClientRect();
-            if (rect.top < windowHeight - 60) {
-                el.classList.add('visible');
-            }
-        });
-    }
-    window.addEventListener('scroll', onScrollAnimate);
-    window.addEventListener('DOMContentLoaded', onScrollAnimate);
-                    // Show/hide Back to Top button
-        const backToTopBtn = document.getElementById('backToTopBtn');
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
-                backToTopBtn.style.display = 'block';
-                backToTopBtn.classList.add('in-view');
-            } else {
-                backToTopBtn.style.display = 'none';
-                backToTopBtn.classList.remove('in-view');
-            }
-        });
-
-        // Fun bounce animation on hover
-        backToTopBtn.addEventListener('mouseenter', function() {
-            document.getElementById('topBtnIcon').style.transform = 'translateY(-8px) scale(1.2) rotate(-15deg)';
-        });
-        backToTopBtn.addEventListener('mouseleave', function() {
-            document.getElementById('topBtnIcon').style.transform = '';
-        });
-
-        // Click scroll to top with smooth effect
-        backToTopBtn.addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            // Fun wiggle animation on click
-            const icon = document.getElementById('topBtnIcon');
-            icon.animate([
-                { transform: 'rotate(0deg)' },
-                { transform: 'rotate(-20deg)' },
-                { transform: 'rotate(20deg)' },
-                { transform: 'rotate(-10deg)' },
-                { transform: 'rotate(0deg)' }
-            ], { duration: 500, easing: 'ease' });
-        });
-    </script>
+    <script src="/js/materi.js"></script>
 </body>
 </html>

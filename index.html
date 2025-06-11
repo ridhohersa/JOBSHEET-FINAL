@@ -465,6 +465,11 @@
             </div>
         </div>
     </div>
+
+    <button id="backToTopBtn" title="Kembali ke Atas" style="position:fixed;bottom:32px;right:32px;z-index:9999;display:none;background:linear-gradient(90deg,#b8c1ec 0%,#eebbc3 100%);color:#232946;border:none;border-radius:50%;width:56px;height:56px;box-shadow:0 4px 16px rgba(232,187,195,0.25);font-size:2rem;cursor:pointer;transition:transform 0.2s,background 0.2s;">
+        <span id="topBtnIcon" style="display:inline-block;transition:transform 0.5s;"><i class="bi bi-arrow-up"></i></span>
+    </button>
+
 <footer class="scroll-animate">
     <div class="container mt-5">
         <div class="row align-items-start justify-content-between">
@@ -545,6 +550,39 @@
             setTimeout(function() {
                 window.location.href = "materi.html";
             }, 800);
+        });
+                // Show/hide Back to Top button
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'block';
+                backToTopBtn.classList.add('in-view');
+            } else {
+                backToTopBtn.style.display = 'none';
+                backToTopBtn.classList.remove('in-view');
+            }
+        });
+
+        // Fun bounce animation on hover
+        backToTopBtn.addEventListener('mouseenter', function() {
+            document.getElementById('topBtnIcon').style.transform = 'translateY(-8px) scale(1.2) rotate(-15deg)';
+        });
+        backToTopBtn.addEventListener('mouseleave', function() {
+            document.getElementById('topBtnIcon').style.transform = '';
+        });
+
+        // Click scroll to top with smooth effect
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Fun wiggle animation on click
+            const icon = document.getElementById('topBtnIcon');
+            icon.animate([
+                { transform: 'rotate(0deg)' },
+                { transform: 'rotate(-20deg)' },
+                { transform: 'rotate(20deg)' },
+                { transform: 'rotate(-10deg)' },
+                { transform: 'rotate(0deg)' }
+            ], { duration: 500, easing: 'ease' });
         });
     </script>
 </body>

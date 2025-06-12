@@ -14,9 +14,6 @@
             animation: bounce 1.5s infinite alternate;
             color: #fffffe;
         }
-        @keyframes bounce {
-            to { transform: translateY(-8px);}
-        }
         .hero {
             background: url('https://cdn.pixabay.com/photo/2017/01/31/13/14/animal-2023924_1280.png') right bottom/300px no-repeat, linear-gradient(135deg, #232946 0%, #121629 100%);
             min-height: 100vh;
@@ -54,6 +51,25 @@
             margin-bottom: 1rem;
             animation: wiggle 1.2s infinite alternate;
             display: inline-block;
+        }
+        .feature-card, .course-card {
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+            background: #232946;
+            color: #eebbc3;
+            border: 1px solid #b8c1ec;
+        }
+        .feature-card-about {
+            background: #232946;
+            color: #eebbc3;
+            border: 1px solid #b8c1ec;
+        }
+        .feature-card:hover, .course-card:hover {
+            transform: translateY(-12px) scale(1.04) rotate(-2deg);
+            box-shadow: 0 8px 32px #b8c1ec44, 0 2px 8px rgba(0,0,0,0.06);
+            z-index: 2;
+        }
+        .courses, section.courses {
+            background: #121629 !important;
         }
         @keyframes wiggle {
             to { transform: rotate(-10deg);}
@@ -104,25 +120,6 @@
             font-size: 0.85rem;
             color: #94a3b8;
             text-align: center;
-        }
-        .feature-card, .course-card {
-            transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
-            background: #232946;
-            color: #eebbc3;
-            border: 1px solid #b8c1ec;
-        }
-        .feature-card-about {
-            background: #232946;
-            color: #eebbc3;
-            border: 1px solid #b8c1ec;
-        }
-        .feature-card:hover, .course-card:hover {
-            transform: translateY(-12px) scale(1.04) rotate(-2deg);
-            box-shadow: 0 8px 32px #b8c1ec44, 0 2px 8px rgba(0,0,0,0.06);
-            z-index: 2;
-        }
-        .courses, section.courses {
-            background: #121629 !important;
         }
         h2, h3, h4 {
             color: #fffffe !important;
